@@ -38,51 +38,8 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
     $this->assertEquals($this->tarjeta->saldo(),-8, "Cuando no recargo y pago el saldo deberia ser -8");
   }
 
-  /*
-  public function testTransbordo() {
-  	$this->tarjeta->recargar(272);
-  	$this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:54");
-  	$this->tarjeta->pagar($this->colectivoB, "2016/06/30 23:50");
-  	$this->assertEquals($this->tarjeta->saldo(), 309.36, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 309.36");
-  }
-
-  public function testNoTransbordo() {
-  	$this->tarjeta->recargar(272);
-  	$this->tarjeta->pagar($this->colectivoA, "2016/06/28 10:50");
-   	$this->tarjeta->pagar($this->colectivoB, "2016/06/30 23:58");
-  	$this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo deberia tener finalmente 304");
- 
-  }
-
-  public function testNoTransbordoMismoColectivo() {
-  	$this->tarjeta->recargar(272);
-  	$this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:50");
-  	$this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:54");
-  	$this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo sin transbordo ya que es el mismo deberia tener finalmente 304");
-  }
-
-
-  public function testMedioTransbordo() {
-    $this->medio->recargar(272);
-    $this->medio->pagar($this->colectivoA, "2016/06/30 22:54");
-    $this->medio->pagar($this->colectivoB, "2016/06/30 23:50");
-    $this->assertEquals($this->medio->saldo(), 314.68, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 314.68");
-  }
-
   
-  public function testMedioNoTransbordo() {
-    $this->medio->recargar(272);
-    $this->medio->pagar($this->colectivoA, "2016/06/28 10:50");
-    $this->assertEquals($this->medio->pagar($this->colectivoB, "2016/06/30 23:58")->getTipo(),"Medio", "Cuando recargo y pago un colectivo con el medio deberia devolver un boleto de viaje Medio");
-    $this->assertEquals($this->medio->saldo(), 312, "Si tengo 312 y pago un colectivo sin transbordo deberia tener finalmente 312");
- 
-  }*/
 
-  public function testPagarBici() {
-    $this->tarjeta->recargar(272);
-    $this->tarjeta->pagar($this->biciA, "2016/06/30 22:54");
-    $this->assertEquals($this->tarjeta->saldo(), 308, "Si tengo 320 y pago una bici deberia tener finalmente 308");
-  }
 
   public function testPagarDosBiciUnDia() {
     $this->tarjeta->recargar(272);
@@ -107,37 +64,7 @@ class TarjetaTest extends \PHPUnit_Framework_TestCase {
   	$this->assertEquals($this->tarjeta->viajesRealizados()["2016/06/30 22:50"]->getTransporte()->getNombreEmpresa(),"Rosario Bus", "");
   }
 
-  /*
-  public function testUnTransbordoPorViaje(){
-    $this->tarjeta->recargar(272);
-    $this->tarjeta->pagar($this->colectivoA, "2016/06/30 22:54");
-    $this->tarjeta->pagar($this->colectivoB, "2016/06/30 23:00");
-    $this->tarjeta->pagar($this->colectivoA, "2016/06/30 23:10");
-    $this->assertEquals($this->tarjeta->saldo(), 301.36, "Si tengo 312 y pago un colectivo con transbordo y luego otro deberia tener finalmente 301.36");
-  }
-
-
-   public function testTransbordo90min() {
-    $this->tarjeta->recargar(272);
-    $this->tarjeta->pagar($this->colectivoA, "2016/10/18 4:10");
-    $this->tarjeta->pagar($this->colectivoB, "2016/10/18 5:20");
-    $this->assertEquals($this->tarjeta->saldo(), 309.36, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 309.36");
-  }
-
-   public function testnoTransbordo90min() {
-    $this->tarjeta->recargar(272);
-    $this->tarjeta->pagar($this->colectivoA, "2016/10/18 20:10");
-    $this->tarjeta->pagar($this->colectivoB, "2016/10/18 21:20");
-    $this->assertEquals($this->tarjeta->saldo(), 304, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 309.36");
-  }
-
-   public function testTransbordo90sabado() {
-    $this->tarjeta->recargar(272);
-    $this->tarjeta->pagar($this->colectivoA, "2016/10/29 14:10");
-    $this->tarjeta->pagar($this->colectivoB, "2016/10/29 15:20");
-    $this->assertEquals($this->tarjeta->saldo(), 309.36, "Si tengo 312 y pago un colectivo con transbordo deberia tener finalmente 309.36");
-  }*/
-
+  
 }
 
 ?>
